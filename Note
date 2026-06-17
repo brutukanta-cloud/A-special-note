@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Note For You ✨</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050507; }
+        .handwritten { font-family: 'Dancing Script', cursive; }
+        /* Custom smooth transition for notebook pages */
+        .page-active { opacity: 1; transform: scale(1) translateY(0); pointer-events: auto; }
+        .page-hidden { opacity: 0; transform: scale(0.95) translateY(10px); pointer-events: none; position: absolute; inset: 0; }
+    </style>
+</head>
+<body class="min-h-screen text-zinc-300 flex items-center justify-center p-4 overflow-x-hidden relative">
+
+    <div class="absolute top-[-10%] left-[-10%] w-[50w] h-[50vw] bg-pink-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[50w] h-[50vw] bg-violet-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div id="lock-screen" class="w-full max-w-sm bg-zinc-950/80 backdrop-blur-xl border border-zinc-900 p-8 rounded-3xl shadow-2xl text-center z-50 transition-all duration-500">
+        <div class="w-16 h-16 bg-pink-500/10 border border-pink-500/20 rounded-2xl flex items-center justify-center mx-auto mb-5 text-pink-400 text-xl shadow-lg shadow-pink-500/5">
+            <i class="fa-solid fa-heart-lock animate-pulse"></i>
+        </div>
+        <h2 class="text-xl font-extrabold text-white tracking-tight mb-1">A Private Note</h2>
+        <p class="text-xs text-zinc-500 mb-6 font-medium">Only intended for someone special. Enter password to unlock.</p>
+        
+        <form id="lock-form" class="space-y-4">
+            <div class="relative">
+                <input type="password" id="secret-pass" placeholder="Enter Secret Password..." required class="w-full bg-zinc-900/40 border border-zinc-800 rounded-xl px-4 py-3.5 text-sm text-center font-bold tracking-widest text-white focus:outline-none focus:border-pink-500 transition-all shadow-inner placeholder-zinc-600">
+            </div>
+            <button type="submit" class="w-full bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-lg shadow-pink-600/15">
+                Unlock Secret <i class="fa-solid fa-key ml-1 text-[10px]"></i>
+            </button>
+        </form>
+        <p class="text-[10px] text-zinc-600 mt-5 font-bold uppercase tracking-wider">Hint: Reshma ka birthday ya uska nick name rakh sakte ho</p>
+    </div>
+    <div id="notebook-container" class="hidden w-full max-w-lg bg-zinc-950 border border-zinc-900 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[500px]">
+        
+        <div class="absolute left-6 top-0 bottom-0 w-[1px] bg-rose-500/20"></div>
+        <div class="absolute left-2 top-10 flex flex-col gap-6 opacity-40">
+            <div class="w-2.5 h-2.5 bg-zinc-900 rounded-full border border-zinc-800"></div>
+            <div class="w-2.5 h-2.5 bg-zinc-900 rounded-full border border-zinc-800"></div>
+            <div class="w-2.5 h-2.5 bg-zinc-900 rounded-full border border-zinc-800"></div>
+            <div class="w-2.5 h-2.5 bg-zinc-900 rounded-full border border-zinc-800"></div>
+        </div>
+
+        <div class="flex justify-between items-center pl-6 pb-4 border-b border-zinc-900/60 mb-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-600"><i class="fa-solid fa-book-heart text-pink-500 mr-1"></i> Page <span id="current-page-num">1</span> of 4</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Since 2022 ✨</span>
+        </div>
+
+        <div class="relative flex-grow pl-6 min-h-[300px]">
+            
+            <div id="page-1" class="page-active space-y-4 transition-all duration-500">
+                <h3 class="handwritten text-3xl text-pink-400 font-bold mb-2">Hello Reshma ,</h3>
+                <p class="text-zinc-300 text-sm leading-relaxed font-medium">I know ki unexpectedly message dekhi kari tui panic or nervous feel karuthibu and for that I apologize, but the reason behind it .... Ita e ki - </p>
+                <p class="text-zinc-300 text-sm leading-relaxed font-medium">I wanna to say one thing to you and I hope ki pura padhbu.</p>
+                <div class="pt-4">
+                    <p class="handwritten text-4xl text-rose-400 font-bold text-center bg-rose-500/5 py-4 border border-rose-500/10 rounded-2xl shadow-inner">"You are my crush since class 6th."</p>
+                </div>
+            </div>
+
+            <div id="page-2" class="page-hidden space-y-4 transition-all duration-500">
+                <p class="text-zinc-300 text-sm leading-relaxed font-medium">Dekh yarr mote bhi mor future ke dekhbar achhe au mui kebhe na chehe ki just for my emotions and feelings mor kam re kichhi affect padu au that's why mui eberu tote mor thinking au understanding tor nu kahinauchhe .</p>
+                <p class="text-zinc-300 text-sm leading-relaxed font-medium">Januchhe ki Amar hete friendship na na hete relation na na hete tui mote na jani bele tk little insecure feel heba decision nebar lagi.</p>
+                <p class="text-zinc-300 text-sm leading-relaxed font-medium">But life tor e mui kebhe jane ke force na kare tui jen decision nebu i agree 'cause tor bhi kichhi choice thiba may be tui relation re bhi thibu kimba dar laguthiba .... Ita bhi hei pare ki distrub hebar lagi na chahuthibu anything that can be happen.</p>
+            </div>
+
+            <div id="page-3" class="page-hidden space-y-4 transition-all duration-500">
+                <p class="text-zinc-300 text-sm leading-relaxed font-medium">But once I said - mui tote kete bele bhi force karbar lagi na chehe bar decision nebar lagi and I respect to your all decisions.</p>
+                <p class="text-zinc-300 text-sm leading-relaxed font-medium">Au gute katha , tote laguthiba ki i sabu kam kale log bigdi jesan kimba takar career re affect padsi au mui agree bhi karsi but In my point of view...</p>
+                <div class="bg-gradient-to-r from-purple-950/40 to-pink-950/40 border border-purple-500/20 p-5 rounded-2xl shadow-lg my-4">
+                    <p class="text-purple-300 text-xs font-bold uppercase tracking-widest mb-2"><i class="fa-solid fa-quote-left mr-1"></i> What Love Is</p>
+                    <p class="text-zinc-200 text-sm italic font-semibold leading-relaxed">"Love is not just an exchange of happiness and sadness. It is about how much you help someone grow, support their journey, and encourage them to reach greater heights in life."</p>
+                </div>
+            </div>
+
+            <div id="page-4" class="page-hidden space-y-4 transition-all duration-500">
+                <p class="text-zinc-300 text-sm leading-relaxed font-medium">That's the reason mui kebhe bhi mor happiness lagi tor use na kare for example:- ahade most of the people jenta chats au call or v call re just for their own happiness duhe duhikar use karsan.</p>
+                <p class="text-zinc-300 text-sm leading-relaxed font-medium">But in the end - your life , your decision and I agree with your all words and I hope you will think about it and you can take time for this . These are my thoughts , thinking and feelings since class 6th baki mui kahineli choice tor ee.. 😄</p>
+                <p class="text-zinc-300 text-sm leading-relaxed font-medium">Etki jinis pare i know ki mote judge karbu baki mor all thoughts au thinking 4years ra kichhi page re ta express kari na pare jete important e sete kahebar ke try karichhe .</p>
+                <p class="handwritten text-3xl text-pink-400 font-bold mt-6 text-right">Thankyou ⭐</p>
+            </div>
+
+        </div>
+
+        <div class="flex justify-between items-center pl-6 pt-6 border-t border-zinc-900/60 mt-6 z-10">
+            <button id="prev-btn" class="bg-zinc-900 hover:bg-zinc-800 text-zinc-400 text-xs font-bold px-4 py-2.5 rounded-xl border border-zinc-800 cursor-pointer transition-all flex items-center gap-1.5 opacity-50 pointer-events-none">
+                <i class="fa-solid fa-chevron-left text-[10px]"></i> Previous
+            </button>
+            <div class="flex gap-1.5" id="page-indicators">
+                <div class="w-1.5 h-1.5 rounded-full bg-pink-500"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-zinc-800"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-zinc-800"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-zinc-800"></div>
+            </div>
+            <button id="next-btn" class="bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white text-xs font-bold px-5 py-2.5 rounded-xl cursor-pointer transition-all flex items-center gap-1.5 shadow-md shadow-pink-600/10">
+                Next <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+        </div>
+
+    </div>
+    <!-- ========================================== -->
+    <!-- 3. JAVASCRIPT CONTROLLER ENGINE            -->
+    <!-- ========================================== -->
+    <script>
+        const lockScreen = document.getElementById('lock-screen');
+        const lockForm = document.getElementById('lock-form');
+        const secretPassInput = document.getElementById('secret-pass');
+        const notebookContainer = document.getElementById('notebook-container');
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const currentPageNum = document.getElementById('current-page-num');
+        const indicators = document.getElementById('page-indicators').children;
+
+        // Default Secret Password (Tum isko badal bhi sakte ho)
+        const correctPassword = "Reshma@123";
+        
+        let currentPage = 1;
+        const totalPages = 4;
+
+        // Password Check Logic
+        lockForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const enteredPassword = secretPassInput.value;
+
+            if (enteredPassword === correctPassword) {
+                // Unlock animation and hide lock screen
+                lockScreen.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    lockScreen.classList.add('hidden');
+                    // Show the premium notebook
+                    notebookContainer.classList.remove('hidden');
+                    notebookContainer.classList.add('animate-fade-in');
+                }, 400);
+            } else {
+                alert("Incorrect Secret Password! ❌ (Ek baar hint check karo)");
+                secretPassInput.value = "";
+                secretPassInput.focus();
+            }
+        });
+
+        // Page Turning Logic
+        function updatePages() {
+            // Loop through all 4 pages
+            for (let i = 1; i <= totalPages; i++) {
+                const page = document.getElementById(`page-${i}`);
+                if (i === currentPage) {
+                    page.classList.remove('page-hidden');
+                    page.classList.add('page-active');
+                    indicators[i-1].className = "w-1.5 h-1.5 rounded-full bg-pink-500 transition-all duration-300";
+                } else {
+                    page.classList.remove('page-active');
+                    page.classList.add('page-hidden');
+                    indicators[i-1].className = "w-1.5 h-1.5 rounded-full bg-zinc-800 transition-all duration-300";
+                }
+            }
+
+            // Update Counter Text
+            currentPageNum.textContent = currentPage;
+
+            // Handle Previous Button State
+            if (currentPage === 1) {
+                prevBtn.classList.add('opacity-50', 'pointer-events-none');
+            } else {
+                prevBtn.classList.remove('opacity-50', 'pointer-events-none');
+            }
+
+            // Handle Next Button State text toggle
+            if (currentPage === totalPages) {
+                nextBtn.innerHTML = `Close Note <i class="fa-solid fa-heart-crack text-[10px] ml-1"></i>`;
+            } else {
+                nextBtn.innerHTML = `Next <i class="fa-solid fa-chevron-right text-[10px] ml-1"></i>`;
+            }
+        }
+
+        nextBtn.onclick = () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePages();
+            } else {
+                // If clicked on last page close button
+                alert("Thank you for reading! ✨ App closing...");
+                location.reload();
+            }
+        };
+
+        prevBtn.onclick = () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePages();
+            }
+        };
+    </script>
+</body>
+</html>
